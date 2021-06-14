@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '实验室：通过使用 DevOps Starter 实现 GitHub Actions'
     module: “模块 8：实现与 GitHub Actions 的持续集成'
