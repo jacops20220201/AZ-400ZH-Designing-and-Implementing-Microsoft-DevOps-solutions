@@ -346,7 +346,7 @@ Ansible 要求在指定的主机清单中指定托管资源。对于某些系统
 
     >**备注**： 如果输入现有或无效的 VM 名称，则可能会遇到以下错误：
 
-    - `fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "The storage account named storageaccountname is already taken.- Reason.already_exists"}`.要解决此问题，请为 Azure VM 使用其他名称，因为你使用的名称不是全局唯一的。
+    - `fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "The storage account named storageaccountname is already taken.- Reason.already_exists"}`. 要解决此问题，请为 Azure VM 使用其他名称，因为你使用的名称不是全局唯一的。
     - `fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "Error creating or updating your-vm-name - Azure Error: InvalidDomainNameLabel\nMessage: The domain name label for your VM is invalid.It must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$.”}`。要解决此问题，请按照要求的命名约定，为 Azure VM 使用其他名称。 
 
     >**备注**： 等待部署完成。该操作需要约 3 分钟。 

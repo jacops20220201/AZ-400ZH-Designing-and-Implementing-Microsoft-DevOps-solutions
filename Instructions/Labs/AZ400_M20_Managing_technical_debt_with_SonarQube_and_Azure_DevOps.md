@@ -66,10 +66,10 @@ lab:
 1.  单击 **Azure DevOps 门户**右上角的 **“+ 新建项目”**。 
 1.  在 **“新建项目”** 窗格上的 **“项目名称”** 文本框中，键入 **“SonarExamples”**，在 **“可见性”** 部分，依次单击 **“公共”** 和 **“创建”**。 
    
-    > **备注**：除非要通过 SonarCloud 注册付费计划，否则请确保将 Azure DevOps 项目设置为公共。如果要注册付费计划，则可以创建专用项目**。
+    > **备注**：除非要通过 SonarCloud 注册付费计划，否则请确保将 Azure DevOps 项目设置为公共。如果要注册付费计划，则可以创建专用项目。
 
 1.  转到 **“SonarExamples”** 窗格，在 Azure DevOps 门户最左侧的垂直菜单栏中，单击 **“Repos”**，在 **“SonarExamples 为空。请添加一些代码!”** 窗格的 **“导入存储库”** 部分，单击 **“导入”**。
-1.  在 **“导入 Git 存储库”** 窗格上，确保 **Git** 在 **“存储库类型”** 下拉列表中显示，在 **“克隆 URL”** 中，键入 **“https://github.com/SonarSource/sonar-scanning-examples.git”**，然后单击 **“导入”**。 
+1.  在 **“导入 Git 存储库”** 窗格上，确保 **Git** 在 **“存储库类型”** 下拉列表中显示，在 **“克隆 URL”** 中，键入 **“https://github.com/SonarSource/sonar-scanning-examples.git”** 然后单击 **“导入”**。 
 
     > **备注**： 扫描示例存储库包含大量生成系统和语言的示例项目，包括 MSBuild 中的 C# 和 Java 中的 Maven 和 Gradle。
 
@@ -231,8 +231,8 @@ lab:
 
     > **备注**： 需遵循本任务中的其余步骤来修改 YAML 管道。 
 
-1.  在 **NuggetCommand@2** 任务中，将 `restoreSolution: 'SomeConsoleApplication.sln'` 替换为 `restoreSolution: '**\SomeConsoleApplication.sln'` 以说明解决方案不在存储库的根目录中。
-1.  在 **VSBuild@1** 任务中，将 `solution: 'SomeConsoleApplication.sln'` 替换为 `solution: '**\SomeConsoleApplication.sln'`，以说明解决方案不在存储库的根目录中。
+1.  在 **NuggetCommand@2** 任务中，将 `restoreSolution: 'SomeConsoleApplication.sln'` 替换为 `restoreSolution: 'SomeConsoleApplication.sln'` 以说明解决方案不在存储库的根目录中。
+1.  在 **VSBuild@1** 任务中，将 `solution: 'SomeConsoleApplication.sln'` 替换为 `solution: 'SomeConsoleApplication.sln'`，以说明解决方案不在存储库的根目录中。
 1.  在 **SonarCloudPrepare@1** 任务中，将 `organization: 'myorga'` 条目中的 `myorga` 占位符的值替换为 SonarCloud 组织的名称。
 1.  在 **SonarCloudPrepare@1** 任务中，将 `projectKey: 'dotnet-framework-on-azdo'` 条目中的 `dotnet-framework-on-azdo` 占位符的值替换为 SonarCloud 项目密钥的名称。
 1.  在 **SonarCloudPrepare@1** 任务中，将 `projectName: `Sample .NET Framework project with Azure DevOps` 条目中的 `Sample .NET Framework project with Azure DevOps` 占位符的值替换为 SonarCloud 项目 (`SonarExamples`) 的名称。
@@ -264,7 +264,7 @@ lab:
 1.  回到 **“准备分析配置”** 窗格中的 **“组织”** 下拉列表中，选择 SonarCloud 组织的名称。 
 1.  在 **“准备分析配置”** 窗格的 **“项目密钥”** 文本框中，键入从本实验室先前部分中记下的项目密钥的名称。
 1.  在 **“准备分析配置”** 窗格的 **“项目名称”** 文本框中，键入从本实验室的先前部分中记下的项目的名称 (`SonarExamples`)。
-1.  可以根据需要禁用“发布 Quality Gate 结果”，在管道任务列表中，选择 **“发布 Quality Gate 结果”** 任务，在 **“发布 Quality Gate 结果”** 窗格中，展开 **“控制选项”** 部分，然后清除 **“已启用”**复选框。 
+1.  可以根据需要禁用“发布 Quality Gate 结果”，在管道任务列表中，选择 **“发布 Quality Gate 结果”** 任务，在 **“发布 Quality Gate 结果”** 窗格中，展开 **“控制选项”** 部分，然后清除 **“已启用”** 复选框。 
 
     > **备注**： 如果要使用预部署入口和发布管道，则必须执行本任务。
 
@@ -406,7 +406,7 @@ lab:
 1.  在 **“所有存储库”** 窗格中，单击 **“SonarExamples”**。
 1.  在 **“SonarExamples”** 窗格中，单击 **“策略”** 选项卡标头。
 1.  在 **“策略”** 列表上，向下滚动到分支列表，然后单击表示**主**分支的条目。
-1.  在**主**窗格上，向下滚动至 **“状态检查”** 部分并单击 **“+”*。
+1.  在**主**窗格上，向下滚动至 **“状态检查”** 部分并单击 **“+”**。
 1.  在 **“添加状态策略”** 窗格的 **“待检查的状态”** 下拉列表中，选择 **“SonarCloud/quality gate”** 条目，确保将 **“策略要求”** 选项设置为 **“必需”**，然后单击 **“保存”**
 
     > **备注**： 此时，用户只有在代码质量检查成功后才能合并拉取请求。因此，需要在相应的 SonarCloud 项目中修复 SonarCloud 识别的所有问题，或将其标记为 **“已确认”** 或 **“已解决”**。
