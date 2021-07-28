@@ -1,22 +1,27 @@
----
+﻿---
 lab:
-    title: '实验室：验证实验室环境'
+    title: '实验室 00：验证实验室环境'
     module: '模块 0：欢迎'
 ---
 
-# 实验室：验证实验室环境
+# 实验室 00：验证实验室环境
 # 学生实验室手册
 
 ## 说明
 
-1. 从讲师或其他来源获取新的 Azure Pass 促销代码（有效期为 30 天）。
-2. 使用专用浏览器会话在 account.microsoft.com 获取新的 Microsoft 帐户 (MSA)，或者使用现有帐户。
-3. 使用该浏览器会话转到 Microsoftazurepass.com，使用 Microsoft 帐户 (MSA) 兑换 Azure Pass。[兑换 Microsoft Azure Pass](https://www.microsoftazurepass.com/Home/HowTo?Length=5) 请按照说明进行兑换。 
-4. 使用该浏览器会话转到 portal.azure.com，然后搜索“Azure DevOps”。在出现的页面中，单击“Azure DevOps 组织”。 
-5. 接下来，单击名为“我的 Azure DevOps 组织”的链接（或导航到 https://aex.dev.azure.com/）。
-6. 在左侧下拉框中，选择“默认”，而不是“Microsoft 帐户”。
-7. 使用默认目录创建新的组织（在屏幕的右上角找到蓝色框）。 
-8. 选择新创建的组织，然后在屏幕左侧选择“组织设置”。
-9. 导航到“组织设置”->“计费”->“设置计费”->选择一个 Azure 订阅，然后依次选择 zure Pass 订阅和“MS 托管的 CI/CD”，再将“付费并行作业”字段设置为 1。然后在底部的蓝色框中单击“保存”。 
-10. 至少要等待 3 个小时才能使用 CI/CD 功能，以便新设置反映在后端中。否则，仍会显示消息“此代理未运行，因为已达到最大请求数量…”。
-11. （可选）若要验证这一点，可通过启用了计费的新创建的组织在 https://azuredevopsdemogenerator.azurewebsites.net/ 中创建新的预定义项目。请等待一段时间，然后再运行测试生成。
+1. 从讲师或其他来源获取新的 **Azure Pass 促销代码**（有效期为 30 天）。
+2. 使用专用浏览器会话在 https://account.microsoft.com 获取新的 **Microsoft 帐户 (MSA)**，或者使用现有帐户。
+3. 使用该浏览器会话转到 https://www.microsoftazurepass.com，使用 Microsoft 帐户 (MSA) 兑换 Azure Pass。有关详细信息，请参阅[兑换 Microsoft Azure Pass](https://www.microsoftazurepass.com/Home/HowTo?Length=5)。按照说明进行兑换。 
+4. 使用同一浏览器会话转到 https://portal.azure.com，然后在门户屏幕顶部搜索 **“Azure DevOps”**。在结果页面中，单击 **“Azure DevOps 组织”**。 
+5. 接下来，单击标记为 **“我的 Azure DevOps 组织”** 的链接（或直接导航到 https://aex.dev.azure.com）。
+6. 在左侧下拉框中，选择 **“默认目录”**，而不是“Microsoft 帐户”。
+7. 如果系统提示“我们需要更多详细信息”，请提供你的姓名、电子邮件地址以及位置，然后单击 **“继续”**。
+8. 返回 https://aex.dev.azure.com 并选中 **“默认目录”**，单击蓝色按钮 **“新建组织”**。
+9. 单击 **“继续”** 即表示接受 *“服务条款”*。
+10. 如果系统提示 *“即将完成”*，请将 Azure DevOps 组织名称保留为默认值（该名称需要是全局唯一名称），并在列表中选择靠近你的托管位置。
+11. 在 **Azure DevOps** 中打开新创建的组织后，单击左下角的 **“组织设置”**。
+12. 在 **“组织设置”** 屏幕上单击 **“计费”** （打开此屏幕需要几秒钟时间）。
+13. 单击屏幕右侧的 **“设置计费”**，选择 **“Azure Pass - 赞助”** 订阅，单击 **“保存”** 以将该订阅与组织链接起来。
+14. 当屏幕顶部显示链接的 Azure 订阅 ID 时，将 **MS 托管 CI/CD** 的**付费并行作业**数量从 0 更改为 **1**。然后单击底部的 **“保存”** 按钮。 
+15. **至少等待 3 个小时再使用 CI/CD 功能**，以便在后端反映新的设置。否则，仍会显示消息 *“此代理未运行，因为已达到最大请求数…”*。
+16. 可选操作：可以通过创建和触发生成管道来验证新设置是否已成功应用。为此，请与讲师沟通，也可以通过 https://azuredevopsdemogenerator.azurewebsites.net 在新创建的组织中创建一个启用了计费的演示项目。

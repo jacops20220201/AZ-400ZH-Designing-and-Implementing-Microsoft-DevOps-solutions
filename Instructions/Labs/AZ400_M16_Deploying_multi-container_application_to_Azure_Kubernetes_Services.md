@@ -1,10 +1,10 @@
----
+﻿---
 lab:
-    title: '实验室：将多容器应用程序部署到 Azure Kubernetes 服务'
+    title: '实验室 16：将多容器应用程序部署到 Azure Kubernetes 服务'
     module: '模块 16：创建和管理 Kubernetes 服务基础结构'
 ---
 
-# 实验室：将多容器应用程序部署到 Azure Kubernetes 服务
+# 实验室 16：将多容器应用程序部署到 Azure Kubernetes 服务
 # 学生实验室手册
 
 ## 实验室概述
@@ -30,7 +30,7 @@ lab:
 
 ### 准备工作
 
-#### 登录实验室虚拟机
+#### 登录到实验室虚拟机
 
 确保已使用以下凭据登录到 Windows 10 计算机：
     
@@ -70,7 +70,7 @@ lab:
 1.  在模板列表中，在工具栏中，单击 **“DevOps 实验室”**，选择 **“Azure Kubernetes 服务”** 模板，然后单击 **“选择模板”**。
 1.  返回 **“新建项目”** 页面，如果系统提示你安装缺少的扩展，请选中 **“替换令牌”** 和 **“Kubernetes 扩展”** 标签下方的复选框，然后单击 **“创建项目”**。
 
-    > **备注**：等待此过程完成。该过程需要约 2 分钟。如果该过程失败，请导航到你的 DevOps 组织，删除项目并重试。
+    > **备注**：等待此过程完成。该过程大约需要 2 分钟。如果该过程失败，请导航到你的 DevOps 组织，删除项目并重试。
 
 1.  在 **“新建项目”** 页面上，单击 **“导航到项目”**。
 
@@ -92,7 +92,7 @@ lab:
 1.  在 Azure 门户的工具栏中，单击搜索文本框右侧的 **“Cloud Shell”** 图标。 
 1.  如果提示选择 **“Bash”** 或 **“PowerShell”**，请选择 **“Bash”**。 
 
-    >**备注**：如果这是你第一次打开 **“Cloud Shell”**，会看到 **“未装载任何存储”** 消息，请选择你在本实验室中使用的订阅，然后选择 **“创建存储”**。 
+    >**备注**：如果这是第一次启动 **Cloud Shell**，并显示消息 **“未装载任何存储”**，请选择你将在本实验室中使用的订阅，然后选择 **“创建存储”**。 
 
 1.  从 Cloud Shell 窗格的 **Bash** 会话，运行以下命令以识别你将在本实验室中使用的 Azure 区域中可用的 Kubernetes 的最新版本（**将 `<Azure_region>` 占位符替换**为本实验室中使用的 Azure 区域的名称，你打算在该区域部署资源）：
 
@@ -100,10 +100,10 @@ lab:
     LOCATION=<Azure_region>
     ```
 
-    > **备注**：可以通过运行以下命令找到可能的位置，使用 `<Azure_region>` 上的 **“Name”** 属性： `az account list-locations -o table`
+    > **备注**：可以通过运行以下命令找到可能的位置，`<Azure_region>`：`az account list-locations -o table`，使用 **Name** 属性中没有空格的值。
 
     ```bash
-    VERSION=$(az aks get-versions --location $LOCATION --query 'orchestrators[-1].orchestratorVersion' --output tsv)
+    VERSION=$(az aks get-versions --location $LOCATION --query 'orchestrators[-1].orchestratorVersion' --output tsv); echo $VERSION
     ```
 
 1.  从 Cloud Shell 窗格的 **Bash** 会话，运行以下命令以创建将托管 AKS 部署的资源组：
@@ -276,7 +276,7 @@ lab:
 
 在本练习中，你将删除在本实验室中预配的 Azure 资源，避免产生意外费用。 
 
->**备注**：请记得删除任何新创建而不会再使用的 Azure 资源。删除未使用的资源，确保不产生意外费用。
+>**备注**：请记得删除不再使用的所有新创建的 Azure 资源。删除未使用的资源，确保不产生意外费用。
 
 #### 任务 1：删除 Azure 实验室资源
 

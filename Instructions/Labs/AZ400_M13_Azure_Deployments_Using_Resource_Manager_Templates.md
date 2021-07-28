@@ -1,10 +1,10 @@
----
+﻿---
 lab:
-    title: '实验室：使用资源管理器模板进行 Azure 部署'
-    module: '模块 13：使用 Azure Tools 管理基础结构和配置'
+    title: '实验室 13：使用资源管理器模板进行 Azure 部署'
+    module: '模块 13： 使用 Azure Tools 管理基础结构和配置'
 ---
 
-# 实验室：使用资源管理器模板进行 Azure 部署
+# 实验室 13：使用资源管理器模板进行 Azure 部署
 # 学生实验室手册
 
 ## 实验室概述
@@ -30,7 +30,7 @@ lab:
 
 ### 准备工作
 
-#### 登录实验室虚拟机
+#### 登录到实验室虚拟机
 
 请确保已使用以下凭据登录到 Windows 10 虚拟机：
     
@@ -68,7 +68,7 @@ lab:
 在此任务中，你将使用 Visual Studio Code 创建资源管理器模板
 
 1.  从实验室计算机中启动 Visual Studio Code，在 Visual Studio Code 中，单击“**文件**”顶层菜单，在下拉菜单中，选择“**首选项**”，在级联菜单中选择“**扩展**”，在“**搜索扩展**”文本框中，键入“**Azure 资源管理器 (ARM) 工具**”，选择相应的搜索结果，然后单击“**安装**”以安装 Azure 资源管理器工具
-1.  在 Visual Studio Code 中，单击“**文件**”顶层菜单，在下拉菜单中选择“**打开文件**”，在“打开文件”对话框中输入 URL **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json** 然后单击“**打开**”。
+1.  在 Web 浏览器中，连接到 **https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.json**。复制代码窗口中的内容，然后将其粘贴到 Visual Studio Code 编辑器。
 
     > **备注**： 我们将使用某个名为“部署简单 Windows 模板 VM”的 [Azure 快速启动模板](https://azure.microsoft.com/zh-cn/resources/templates/)，**而不是从头开始创建模板**。模板可从 GitHub - [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 下载。
 
@@ -247,7 +247,7 @@ lab:
 
 1.  提示选择 **Bash** 或 **PowerShell** 时，选择 **PowerShell**。 
 
-    >**备注**：如果这是你第一次打开“**Cloud Shell**”，会看到“**未装载任何存储**”消息，请选择你在本实验室中使用的订阅，然后选择“**创建存储**”。 
+    >**备注**：如果这是第一次启动 **Cloud Shell**，并显示消息 **“未装载任何存储”**，请选择你将在本实验室中使用的订阅，然后选择 **“创建存储”**。 
 
 1.  在 Cloud Shell 窗格的 **PowerShell** 会话中，运行以下命令以创建 blob 存储容器，上传你在上一个任务中创建的模板文件，并生成一个 SAS 令牌，你将在主模板中引用该令牌以访问链接模板。
 1.  首先，复制并粘贴以下代码行以设置要部署到的 Azure 区域的值。命令将等待你的输入，如提示符中所示。
@@ -456,7 +456,7 @@ lab:
 
 在本练习中，你将删除在本实验室中预配的 Azure 资源，避免产生意外费用。 
 
->**备注**： 请记得删除任何新创建而不会再使用的 Azure 资源。删除未使用的资源，确保不产生意外费用。
+>**备注**： 请记得删除不再使用的所有新创建的 Azure 资源。删除未使用的资源，确保不产生意外费用。
 
 #### 任务 1：删除 Azure 实验室资源
 

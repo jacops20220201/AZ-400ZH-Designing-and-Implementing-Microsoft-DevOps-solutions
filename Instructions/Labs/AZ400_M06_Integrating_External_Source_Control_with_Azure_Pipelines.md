@@ -1,10 +1,10 @@
----
+﻿---
 lab:
-    title: '实验室：将外部源代码管理与 Azure Pipelines 集成'
-    module: '模块 6：使用 Azure Pipelines 实现持续集成'
+    title: '实验室 06b：将外部源代码管理与 Azure Pipelines 集成'
+    module: '模块 6： 使用 Azure Pipelines 实现持续集成'
 ---
 
-# 实验室：将外部源代码管理与 Azure Pipelines 集成
+# 实验室 06b：将外部源代码管理与 Azure Pipelines 集成
 # 学生实验室手册
 
 ## 实验室概述
@@ -31,7 +31,7 @@ Azure Pipelines 为每个 GitHub 开源项目免费提供无限的 CI/CD 分钟�
 
 ### 准备工作
 
-#### 登录实验室虚拟机
+#### 登录到实验室虚拟机
 
 请确保已使用以下凭据登录到 Windows 10 虚拟机：
     
@@ -122,7 +122,7 @@ Azure Pipelines 为每个 GitHub 开源项目免费提供无限的 CI/CD 分钟�
 1.  在显示分支内容的 GitHub 页面上，找到代表文件 **azure-pipelines.yml** 的条目并单击它。此操作将自动打开该文件并显示其内容。 
 1.  在 **“master/calculator/azure-pipelines.yml”** 页面上，在显示文件内容的窗格的右上角，单击铅笔形状的 **“编辑此文件”** 图标。 
 
-    > **备注**：我们的项目已包含使用 Mocha 编写的测试，因此我们只需在输出管道中执行它们即可。 
+    > **备注**：我们的项目已包含使用 Mocha 编写的测试，因此我们只需在管道中执行它们即可。 
 
 1.  若要添加测试运行，请在 `npm run build` 命令的正下方添加 `npm test` 命令，并使用相同的缩进。另外，将 `displayName` 条目更新为 `'npm install, build, and test'`，以清楚地指示生成的每个任务的执行内容： 
 
