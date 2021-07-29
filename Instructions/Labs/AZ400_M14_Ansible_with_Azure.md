@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '实验室 14a： Ansible 与 Azure'
     module: '模块 14：通过 Azure 提供的第三方基础结构即代码工具'
