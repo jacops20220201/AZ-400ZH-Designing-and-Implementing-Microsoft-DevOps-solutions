@@ -1,10 +1,10 @@
 ---
 lab:
-    title: '实验室：在 Azure DevOps 管道中实现安全性和合规性'
-    module: '模块 19：在 DevOps 项目中实现安全性'
+    title: '实验室 19： 在 Azure DevOps 管道中实现安全性和合规性'
+    module: '模块 19： 在 DevOps 项目中实现安全性'
 ---
 
-# 实验室：在 Azure DevOps 管道中实现安全性和合规性
+# 实验室 19： 在 Azure DevOps 管道中实现安全性和合规性
 # 学生实验室手册
 
 ## 实验室概述
@@ -37,7 +37,7 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 
 ### 准备工作
 
-#### 登录实验室虚拟机
+#### 登录到实验室虚拟机
 
 确保已使用以下凭据登录到 Windows 10 计算机：
     
@@ -72,7 +72,7 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 1.  在模板列表的工具栏中，单击 **“DevOps 实验”**，选择 **“WhiteSource Bolt”** 模板，然后单击 **“选择模板”**。
 1.  返回 **“新建项目”** 页面，如果系统提示你安装缺少的扩展，请选中 **“WhiteSource Bolt”** 下方的复选框，然后单击 **“创建项目”**。
 
-    > **备注**：等待此过程完成。该过程需要约 2 分钟。如果该过程失败，请导航到你的 DevOps 组织，删除项目并重试。
+    > **备注**：等待此过程完成。该过程大约需要 2 分钟。如果该过程失败，请导航到你的 DevOps 组织，删除项目并重试。
 
 1.  在 **“新建项目”** 页面上，单击 **“导航到项目”**。
 
@@ -84,7 +84,7 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 
 在此任务中，你将在新生成的 Azure Devops 项目中激活 WhiteSource Bolt。
 
-1.  实验室计算机的 Web 浏览器窗口中显示了 Azure DevOps 门户和打开的 **WhiteSource Bolt** 项目，在 Azure DevOps 门户最左侧的垂直菜单栏中，单击 **“管道”**，然后在 **“管道”** 部分，单击 **“WhiteSource Bolt”**。
+1.  实验室计算机的 Web 浏览器窗口中显示了 Azure DevOps 门户和打开的 **WhiteSource Bolt** 项目，在 Azure DevOps 门户最左侧的**垂直菜单栏**中，单击 **“管道”** 部分和 **“WhiteSource Bolt”** 选项（在垂直菜单栏的“部署组”选项下方）。
 1.  在 **“即将完成”** 窗格上，输入 **“工作电子邮件”** 和 **“公司名称”**，在 **“国家/地区”** 下拉列表中，选择表示你所在国家/地区的条目，然后单击 *“入门”* 按钮，开始使用*免费*版的 WhiteSource Bolt。这将自动打开新的浏览器标签页，其中显示了 **“Bolt 入门”** 页面。 
 1.  切换回显示 Azure DevOps 门户的 Web 浏览器标签页，并验证是否显示了 **“你正在使用免费版的 WhiteSource Bolt”**。
 
@@ -92,11 +92,19 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 
 在此任务中，你将在基于 Java 代码的 Azure DevOps 项目中触发生成。你将使用 **WhiteSource Bolt** 扩展来确定此代码中易受攻击的组件。
 
-1.  实验室计算机的 Web 浏览器窗口中显示了 Azure DevOps 门户和打开的 **WhiteSource Bolt** 项目，在左侧的垂直菜单栏的 **“管道”** 部分，单击 **“管道”**。
-1.  在 **“管道”** 窗格上，选择 **“WhiteSourceBolt”** 生成定义，单击 **“运行管道”**，然后在 **“运行管道”** 窗格上，单击 **“运行”** 以触发生成。
+1.  实验室计算机的 Web 浏览器窗口中显示了 Azure DevOps 门户和打开的 **WhiteSource Bolt** 项目，在左侧的垂直菜单栏上单击 **“Repos”**，然后导航到 **“WebGoat”**。
+
+    > **备注**：由于该项目使用 Maven 编译项目文件，最新的 Maven 3.8.1 版本阻止 HTTP Artifactory。若要成功生成项目，需要更改项目的 pom.xml 文件，以使用 HTTPS 而不是 HTTP。为此，请执行以下步骤。
+
+1. 在 **webgoat-container** 项目文件中，标识 pom.xml 文件，然后在右上角单击 **“编辑”**。在 pom.xml 文件中搜索 **“pluginRepositories”** 部分。将 URL“http://repository.apache.org/snapshots/”更改为“https://repository.apache.org/snapshots/”
+
+1. 编辑完成后，在 **“提交”** 按钮可用时单击 **“提交”**。
+
+1. 在左侧的垂直菜单栏中，导航到 **“管道”** 部分，然后单击 **“管道”**。观察生成，它已由上一步中执行的提交自动触发。
+
 1.  在生成窗格的 **“摘要”** 选项卡上的 **“作业”** 部分，单击 **“阶段 1”** 并监视生成流程的进度。
 
-    > **备注**：生成定义由以下任务构成：
+    > **备注**：此生成可能需要花费几分钟时间完成。生成定义由以下任务构成：
 
     | 任务 | 用法 |
     | ---- | ------ |
@@ -120,7 +128,7 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 
 1.  在 **“WhiteSource Bolt 生成报表”** 选项卡上，向下滚动到 **“过时的库”** 部分并查看其内容。
 
-    > **备注**：WhiteSource Bolt 跟踪项目中过时的库，提供库详细信息、较新版本的链接以及修正建议。
+    > **备注**： WhiteSource Bolt 跟踪项目中过时的库，提供库详细信息、较新版本的链接以及修正建议。
 
 ## 回顾
 

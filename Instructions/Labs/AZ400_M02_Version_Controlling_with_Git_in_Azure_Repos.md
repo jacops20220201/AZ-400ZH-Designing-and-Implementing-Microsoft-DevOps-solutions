@@ -1,10 +1,10 @@
 ---
 lab:
-    title: '实验室：在 Azure Repos 中使用 Git 进行版本控制'
-    module: “模块 2：源代码管理入门'
+    title: '实验室 02：在 Azure Repos 中使用 Git 进行版本控制'
+    module: '模块 2：源代码管理入门'
 ---
 
-# 实验室：在 Azure Repos 中使用 Git 进行版本控制
+# 实验室 02：在 Azure Repos 中使用 Git 进行版本控制
 # 学生实验室手册
 
 ## 实验室概述
@@ -30,17 +30,17 @@ Git 是新项目的默认版本控制提供程序。除非明确需要 TFVC 中�
 
 ## 实验室持续时间
 
--   预计用时： **50 分钟**
+-   预计用时：**50 分钟**
 
 ## 说明
 
 ### 准备工作
 
-#### 登录实验室虚拟机
+#### 登录到实验室虚拟机
 
 请确保已使用以下凭据登录到 Windows 10 虚拟机：
     
--   用户名： **Student**
+-   用户名：**Student**
 -   密码： **Pa55w.rd**
 
 #### 查看本实验室所需的应用程序
@@ -73,7 +73,7 @@ Git 是新项目的默认版本控制提供程序。除非明确需要 TFVC 中�
 1.  在模板列表中，找到 **“PartsUnlimited”** 模板，然后单击 **“选择模板”**。
 1.  返回 **“新建项目”** 页面，单击 **“创建项目”**
 
-    > **备注**： 等待此过程完成。该操作约需 2 分钟。如果该过程失败，请导航到你的 Azure DevOps 组织，删除项目并重试。
+    > **备注**：等待此过程完成。该过程大约需要 2 分钟。如果该过程失败，请导航到你的 Azure DevOps 组织，删除项目并重试。
 
 1.  在 **“新建项目”** 页面上，单击 **“导航到项目”**。
 
@@ -156,7 +156,7 @@ Git 提交包含以下内容：
 
 在此任务中，你将使用 Visual Studio Code 提交更改。
 
-1.  在 Visual Studio Code 窗口中的垂直工具栏的顶部选择 **“资源管理器”** 选项卡，导航到 **/PartsUnlimited-aspnet45/src/PartsUnlimitedWebsite/Models/CartItem.cs** 文件并选中它。这将自动在详细信息窗格中显示其内容。
+1.  在 Visual Studio Code 窗口的垂直工具栏顶部，选择 **“资源管理器”** 选项卡，导航到 **/PartsUnlimited-aspnet45/src/PartsUnlimitedWebsite/Models/CartItem.cs** 文件并选择该文件。这将自动在详细信息窗格中显示其内容。
 1.  在 **CartItem.cs** 文件中 `[key]` 条目的上方添加一个额外的行，并在其中包含以下注释： 
 
     ```csharp
@@ -188,7 +188,7 @@ Git 提交包含以下内容：
 
 1.  切换回 **“Visual Studio Code”** 窗口。
 1.  通过将第一个注释更改为 `//My second change` 并保存文件来更新打开的 **CartItem.cs** 类。
-1.  在 Visual Studio Code 窗口中切换回 **“资源管理器”** 选项卡，导航到 **/PartsUnlimited-aspnet45/src/PartsUnlimitedWebsite/Models/Category.cs** 文件并选中它。这将自动在详细信息窗格中显示其内容。
+1.  在“Visual Studio Code”窗口中，切换回 **“资源管理器”** 选项卡，导航到 **/PartsUnlimited-aspnet45/src/PartsUnlimitedWebsite/Models/Category.cs** 文件并选择该文件。这将自动在详细信息窗格中显示其内容。
 1.  在 **Category.cs** 文件中 `public int CategoryId { get; set; }` 条目的上方添加一个额外的行，并其中包含以下注释，然后保存该文件。
 
     ```csharp
@@ -261,7 +261,7 @@ Git 会跟踪你正在处理的分支，并确保在签出分支时，文件与�
 1.  切换回 **“Visual Studio Code”** 窗口，并在 **“源代码管理”** 选项卡处于选中状态的情况下，在 Visual Studio Code 窗口的左下角单击 **“开发”** 条目。这将在 Visual Studio Code 窗口的上部显示现有分支。
 1.  验证现在是否列出了两个 **“开发”** 分支。 
 
-    > **备注**： 列出了本地（**开发**）分支，因为它的存在不会因在远程存储库中删除分支而受到影响。列出了服务器（原始/开发），因为它尚未被删除。 
+    > **备注**： 列出了本地（**开发**）分支，因为它的存在不会因在远程存储库中删除分支而受到影响。列出了服务器（**原始/开发**），因为它尚未被删除。 
 
 1.  在分支列表中，选择 **master** 分支以将其签出。
 1.  按 **Ctrl+Shift+P** 打开**命令面板**。
