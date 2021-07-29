@@ -68,7 +68,7 @@ lab:
 在此任务中，你将使用 Visual Studio Code 创建资源管理器模板
 
 1.  从实验室计算机中启动 Visual Studio Code，在 Visual Studio Code 中，单击“**文件**”顶层菜单，在下拉菜单中，选择“**首选项**”，在级联菜单中选择“**扩展**”，在“**搜索扩展**”文本框中，键入“**Azure 资源管理器 (ARM) 工具**”，选择相应的搜索结果，然后单击“**安装**”以安装 Azure 资源管理器工具
-1.  在 Web 浏览器中，连接到 **https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.json**。复制代码窗口中的内容，然后将其粘贴到 Visual Studio Code 编辑器。
+1.  在 Web 浏览器中，连接到 **https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.json** 复制代码窗口中的内容，然后将其粘贴到 Visual Studio Code 编辑器。
 
     > **备注**： 我们将使用某个名为“部署简单 Windows 模板 VM”的 [Azure 快速启动模板](https://azure.microsoft.com/zh-cn/resources/templates/)，**而不是从头开始创建模板**。模板可从 GitHub - [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 下载。
 

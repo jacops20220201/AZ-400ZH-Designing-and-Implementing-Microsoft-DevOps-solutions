@@ -40,7 +40,7 @@ Azure Artifacts 有助于在 Azure DevOps 中发现、安装和发布 NuGet、np
 确定你将在本实验室中使用的应用程序：
     
 -   Microsoft Edge
--   可从 [Visual Studio 下载页面](https://visualstudio.microsoft.com/downloads/)获得 Visual Studio 2019 Community Edition。Visual Studio 2019 安装应包括 **“ASP<nolink>.NET 和 Web 开发”**、**“Azure 开发”** 和 **“.NET Core 跨平台开发”**工作负载。它已预先安装在实验室计算机上。
+-   可从 [Visual Studio 下载页面](https://visualstudio.microsoft.com/downloads/)获得 Visual Studio 2019 Community Edition。Visual Studio 2019 安装应包括 **“ASP<nolink>.NET 和 Web 开发”**、**“Azure 开发”** 和 **“.NET Core 跨平台开发”** 工作负载。它已预先安装在实验室计算机上。
 
 #### 设置 Azure DevOps 组织
 
