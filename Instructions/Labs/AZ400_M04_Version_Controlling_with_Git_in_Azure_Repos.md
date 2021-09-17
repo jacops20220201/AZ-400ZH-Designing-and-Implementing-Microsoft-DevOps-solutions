@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 04： 在 Azure Repos 中使用 Git 进行版本控制'
     module: '模块 4：缩放 Enterprise DevOps 的 Git'
@@ -52,6 +52,10 @@ Git 是新项目的默认版本控制提供程序。除非明确需要 TFVC 中�
 #### 设置 Azure DevOps 组织 
 
 如果还没有可用于本实验室的 Azure DevOps 组织，请按照[创建组织或项目集合](https://docs.microsoft.com/zh-cn/azure/devops/organizations/accounts/create-organization?view=azure-devops)中的说明创建一个。
+
+#### 备注
+
+如果你已完成“**实验室 02：在 Azure Repos 中使用 Git 进行版本控制**”，并且已经完成了“**练习 0：配置实验室先决条件**”和“**练习 1：克隆现有的存储库**”中的步骤，可以跳到“**练习 2：从 Azure DevOps 管理分支**”。
 
 ### 练习 0：配置实验室先决条件
 

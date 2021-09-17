@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 11a： 使用 YAML 将管道配置为代码'
     module: '模块 11： 使用 Azure Pipelines 实现持续部署'
@@ -57,7 +57,7 @@ lab:
 
 1.  在实验室计算机上，启动 Web 浏览器并导航到 [Azure DevOps 演示生成器](https://azuredevopsdemogenerator.azurewebsites.net)。此实用工具将对以下过程进行自动化：在你的帐户中创建预填充了实验室所需内容（工作项、存储库等）的 Azure DevOps 项目。 
 
-    > **备注**： 有关该站点的详细信息，请参阅 https://docs.microsoft.com/zh-cn/azure/devops/demo-gen。
+    > **备注**：有关该站点的详细信息，请参阅[什么是 Azure DevOps 服务演示生成器？](https://docs.microsoft.com/zh-cn/azure/devops/demo-gen)。
 
 1.  单击 **“登录”**，并使用与你的 Azure DevOps 订阅相关联的 Microsoft 帐户登录。
 1.  如果需要，在 **“Azure DevOps 演示生成器”** 页面上，单击 **“接受”** 以接受访问 Azure DevOps 订阅的权限请求。

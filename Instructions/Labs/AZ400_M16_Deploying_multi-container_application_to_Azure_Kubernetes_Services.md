@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 16：将多容器应用程序部署到 Azure Kubernetes 服务'
     module: '模块 16：创建和管理 Kubernetes 服务基础结构'
@@ -152,13 +152,13 @@ lab:
 1.  从 Cloud Shell 窗格的 **Bash** 会话，运行以下命令以授予 AKS 生成的托管标识，以便访问新创建的 ACR：
 
     ```bash
-    # 检索为 AKS 配置的服务主体的 ID
+    # Retrieve the id of the service principal configured for AKS
     CLIENT_ID=$(az aks show --resource-group $RGNAME --name $AKSNAME --query "identityProfile.kubeletidentity.clientId" --output tsv)
 
-    # 检索 ACR 注册表资源 ID。
+    # Retrieve the ACR registry resource id
     ACR_ID=$(az acr show --name $ACRNAME --resource-group $RGNAME --query "id" --output tsv)
 
-    # 创建角色分配
+    # Create role assignment
     az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
     ```
 
@@ -186,6 +186,7 @@ lab:
 
 1.  在实验室计算机上，切换到显示 Azure DevOps 门户的 Web 浏览器窗口，其中 **“将多容器应用程序部署为 AKS”** 项目处于打开状态，在 Azure DevOps 门户最左侧的垂直菜单栏中，单击 **“Pipelines”**。
 1.  在 **“Pipelines”** 窗格上，单击代表 **MyHealth.AKS.build** 管道的条目，在 **“MyHealth.AKS.Build”** 窗格上，单击 **“编辑”**。
+1.  在管道的任务列表中，单击第一个“**替换令牌（预览）**”任务，在“**令牌模式**”下拉列表中选择 ```__...__```。 
 1.  在管道的任务列表中，单击 **“运行服务”** 任务，在右侧 **“Docker Compose”** 窗格的 **“Azure 订阅”** 下拉列表中， 
 选择代表将在本实验室中使用的 Azure 订阅的条目，然后单击 **“授权”** 以创建相应的服务连接。出现提示时，使用在 Azure 订阅中具有“所有者”角色并且在与 Azure 订阅关联的 Azure AD 租户中具有“全局管理员”角色的帐户登录。
 
