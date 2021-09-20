@@ -260,7 +260,7 @@ Azure Artifacts 有助于在 Azure DevOps 中发现、安装和发布 NuGet、np
 
     > **备注**： NuGet 知道我们的更新，如 **“更新”** 选项卡的内容所示。 
 
-1.  在 **“NuGet: PartsUnlimitedWebsite”** 窗格中，单击 **“更新”** 选项卡，在搜索文本框中，键入 **PartsUnlimited.Shared**，然后单击窗格右侧“**最新稳定版 1.1.0**”下拉列表旁边的“**更新**”以安装新版本。 
+1.  在“**NuGet: PartsUnlimitedWebsite**”窗格中，单击“**更新**”选项卡，在搜索文本框中键入“**PartsUnlimited.Shared**”，然后在窗格右侧的“版本:“**最新稳定版 1.1.0**”下拉列表旁边，单击“**更新**”以安装新版本。 
 
     > **备注**：可能有许多 NuGet 更新可用，但你只需要更新 **PartsUnlimited.Shared**。请注意，该包可能需要一些时间才能完全可用于更新。如果遇到错误，请稍等片刻，然后重试。
 

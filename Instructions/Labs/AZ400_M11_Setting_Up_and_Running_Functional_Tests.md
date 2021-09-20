@@ -62,7 +62,7 @@ lab:
 
 1.  在实验室计算机上，启动 Web 浏览器并导航到 [Azure DevOps 演示生成器](https://azuredevopsdemogenerator.azurewebsites.net)。此实用工具将对以下过程进行自动化：在你的帐户中创建预填充了实验室所需内容（工作项、存储库等）的 Azure DevOps 项目。 
 
-    > **备注**：有关该站点的详细信息，请参阅 https://docs.microsoft.com/zh-cn/azure/devops/demo-gen。
+    > **备注**：有关该站点的详细信息，请参阅[什么是 Azure DevOps 服务演示生成器？](https://docs.microsoft.com/zh-cn/azure/devops/demo-gen)。
 
 1.  单击“**登录**”，并使用与你的 Azure DevOps 订阅相关联的 Microsoft 帐户登录。
 1.  如果需要，在“**Azure DevOps 演示生成器**”页面上，单击“**接受**”以接受访问 Azure DevOps 订阅的权限请求。
@@ -78,7 +78,7 @@ lab:
 
 在此任务中，你将预配运行 Windows Server 2016、SQL Express 2017、Chrome 和 Firefox 的 Azure VM。
 
-1.  单击下面的“部署到 Azure”按钮。[![部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json)。这会自动重定向到 Azure 门户中的“**自定义部署**”边栏选项卡。
+1.  单击“部署到 Azure”按钮。[![部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json) 此操作将自动重定向到 Azure 门户中的“**自定义部署**”边栏选项卡。
 1.  出现提示时，使用用户帐户登录，该帐户在你打算在本实验室中使用的 Azure 订阅中具有所有者角色，并且在该订阅关联的 Azure AD 租户中具有全局管理员角色。
 1.  在“**自定义部署**”边栏选项卡上，指定以下设置：
 
@@ -132,7 +132,9 @@ lab:
     | 设置 | 值 |
     | --- | --- |
     | 名称 | **设置和运行功能测试实验室** |
-    | 范围 | **完全访问权限** |
+    | 范围 | **自定义** |
+    | 范围 | 单击窗口底部的“**显示所有范围**”按钮 |
+    | 范围 | **代理池** - **读取和管理** |
 
 1.  在“**成功**”窗格上，将个人访问令牌的值复制到剪贴板。
 
