@@ -316,16 +316,16 @@ lab:
       "Linked template URI with SAS token: $templateURI"
       ```
 
-    >**备注**：确保记录脚本生成的最终输出。稍后将在本实验室中用到它。
-    
-    >**备注**： 输出值应如下所示：
+  >**备注**：确保记录脚本生成的最终输出。稍后将在本实验室中用到它。
+  
+  >**备注**： 输出值应如下所示：
 
   ```
       Resource Group Name: az400m13l01-RG
       Linked template URI with SAS token: https://az400m13blob1677205310.blob.core.windows.net/linktempblobcntr/storage.json?sv=2018-03-28&sr=b&sig=B4hDLt9rFaWHZXToJlMwMjejAQGT7x0INdDR9bHBQnI%3D&se=2020-11-23T21%3A54%3A53Z&sp=r
   ```
 
-    >**备注**： 对于需要更高安全级别的场景，你可以在主模板部署过程中动态生成 SAS 令牌，并为 SAS 令牌指定更短的有效期。
+  >**备注**： 对于需要更高安全级别的场景，你可以在主模板部署过程中动态生成 SAS 令牌，并为 SAS 令牌指定更短的有效期。
 
 1.  关闭 Cloud Shell 窗格。
 

@@ -78,7 +78,7 @@ lab:
 
 在此任务中，你将预配运行 Windows Server 2016、SQL Express 2017、Chrome 和 Firefox 的 Azure VM。
 
-1.  单击“部署到 Azure”按钮。[![部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json) 此操作将自动重定向到 Azure 门户中的“自定义部署”****边栏选项卡。
+1.  单击“部署到 Azure”按钮。[![部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json) 此操作将自动重定向到 Azure 门户中的“**自定义部署**”边栏选项卡。
 1.  出现提示时，使用用户帐户登录，该帐户在你打算在本实验室中使用的 Azure 订阅中具有所有者角色，并且在该订阅关联的 Azure AD 租户中具有全局管理员角色。
 1.  在“**自定义部署**”边栏选项卡上，指定以下设置：
 
