@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: '实验室 15： 将 Docker 容器部署到 Azure 应用服务 Web 应用'
     module: '模块 15： 使用 Docker 管理容器'
