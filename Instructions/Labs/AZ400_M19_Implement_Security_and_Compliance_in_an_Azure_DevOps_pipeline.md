@@ -92,17 +92,8 @@ Azure DevOps 与 WhiteSource Bolt 的集成将使你能够：
 
 在此任务中，你将在基于 Java 代码的 Azure DevOps 项目中触发生成。你将使用 **WhiteSource Bolt** 扩展来确定此代码中易受攻击的组件。
 
-1.  实验室计算机的 Web 浏览器窗口中显示了 Azure DevOps 门户和打开的 **WhiteSource Bolt** 项目，在左侧的垂直菜单栏上单击 **“Repos”**，然后导航到 **“WebGoat”**。
-
-    > **备注**：由于该项目使用 Maven 编译项目文件，最新的 Maven 3.8.1 版本阻止 HTTP Artifactory。若要成功生成项目，需要更改项目的 pom.xml 文件，以使用 HTTPS 而不是 HTTP。为此，请执行以下步骤。
-
-1. 在 **webgoat-container** 项目文件中，标识 pom.xml 文件，然后在右上角单击 **“编辑”**。在 pom.xml 文件中搜索 **“pluginRepositories”** 部分。将 URL“http://repository.apache.org/snapshots/”更改为“https://repository.apache.org/snapshots/”
-
-1. 编辑完成后，在 **“提交”** 按钮可用时单击 **“提交”**。
-
-1. 在左侧的垂直菜单栏中，导航到 **“管道”** 部分，然后单击 **“管道”**。观察生成，它已由上一步中执行的提交自动触发。
-
-1.  在生成窗格的 **“摘要”** 选项卡上的 **“作业”** 部分，单击 **“阶段 1”** 并监视生成流程的进度。
+1.  在实验室计算机上左侧的垂直菜单栏中，导航到“管道”部分，单击“**WhileSourceBolt**”，再单击“**运行管道**”，然后在“**运行管道**”窗格中，单击“**运行**”。
+1.  在生成窗格的“**摘要**”选项卡上的“**作业**”部分，单击“**阶段 1**”，然后监视生成过程的进度。
 
     > **备注**：此生成可能需要花费几分钟时间完成。生成定义由以下任务构成：
 

@@ -78,9 +78,11 @@ lab:
 
 在此任务中，你将预配运行 Windows Server 2016、SQL Express 2017、Chrome 和 Firefox 的 Azure VM。
 
-1.  单击“部署到 Azure”按钮。[![部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json) 此操作将自动重定向到 Azure 门户中的“**自定义部署**”边栏选项卡。
+1.  单击此处的 **[部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Falmvm%2Fmaster%2Flabs%2Fvstsextend%2Fselenium%2Farmtemplate%2Fazuredeploy.json)** 链接。这会自动重定向到 Azure 门户中的“**自定义部署**”边栏选项卡。
 1.  出现提示时，使用用户帐户登录，该帐户在你打算在本实验室中使用的 Azure 订阅中具有所有者角色，并且在该订阅关联的 Azure AD 租户中具有全局管理员角色。
-1.  在“**自定义部署**”边栏选项卡上，指定以下设置：
+1.  在“**自定义部署**”边栏选项卡上，选择“**编辑模板**”。
+1.  在“**编辑模板**”边栏选项卡上，找到 `"https://raw.githubusercontent.com/microsoft/azuredevopslabs/master/labs/vstsextend/selenium/armtemplate/chrome_firefox_VSTSagent_IIS.ps1"` 这一行，将其替换为 `https://raw.githubusercontent.com/MicrosoftLearning/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/master/Allfiles/Labs/11b/chrome_firefox_VSTSagent_IIS.ps1`， 然后单击“**保存**”。
+1.  返回“**自定义部署**”边栏选项卡，指定以下设置：
 
     | 设置 | 值 |
     | --- | --- |
@@ -124,7 +126,7 @@ lab:
     cd C:\AzAgent
     Config.cmd
     ```
-1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入服务器 URL**”时，键入“**https://dev.azure.com/ \<your-DevOps-organization-name\>**”，其中 **\<your-DevOps-organization-name\>** 表示 Azure DevOps 组织的名称，然后按 **Enter** 键。
+1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入服务器 URL**”时，键入“**https://dev.azure.com/\<your-DevOps-organization-name\>**”，其中 **\<your-DevOps-organization-name\>** 表示 Azure DevOps 组织的名称，然后按 **Enter** 键。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入身份验证类型(按 enter 表示 PAT)**”时，按 **Enter** 键。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入个人访问令牌**”时，切换到 Azure DevOps 门户，关闭“**获取代理**”面板，在 Azure DevOps 页的右上角，单击“**用户设置**”图标，在下拉菜单中，单击“**个人访问令牌**”，然后在“**个人访问令牌**”窗格上，单击“**+ 新建令牌**”。
 1.  在“**创建新的个人访问令牌**”窗格上，指定以下设置，然后单击“**创建**”（所有其他设置保留默认值）：
@@ -145,14 +147,14 @@ lab:
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入代理池(按 enter 表示默认值)**”时，按 **Enter 键**。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入代理名称(按 enter 表示 az40011bvm)**”时，按 **Enter 键**。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入工作文件夹(按 enter 表示 _work)**”时，按 **Enter 键**。
-1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入是否为每个步骤的任务执行解压缩(按 enter 表示否)**”时，按 **Enter 键**。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示输入“**输入是否将代理作为服务运行(是/否)(按 enter 表示否)**”时，按 **Enter 键**。
 1.  在“**管理员: 命令提示符**”窗口中，系统提示“**输入是否配置自动登录并在启动时运行代理(是/否)(按 enter 表示否)**”时，按 **Enter 键**。
 1.  注册代理后，在“**管理员: 命令提示符**”窗口中，键入“**run.cmd**”并按 **Enter** 以启动代理。
 
     > **备注**：还需安装 Dac Framework，你稍后在本实验室中部署的应用程序会用到它。
 
-1.  在 **az40011bvm** 远程桌面会话中，启动 Web 浏览器，导航到 [Microsoft SQL Server 数据层应用程序框架 (18.2) 下载页面](https://www.microsoft.com/zh-cn/download/details.aspx?id=58207&WT.mc_id=rss_alldownloads_extensions)。这将自动触发下载。
+1.  在与 **az40011bvm** 的远程桌面会话中，启动 Web 浏览器的另一个实例，导航到 [Microsoft SQL Server 数据层应用程序框架 (18.2) 下载页](https://www.microsoft.com/zh-cn/download/details.aspx?id=58207&WT.mc_id=rss_alldownloads_extensions)，然后单击“**下载**”。 
+1.  在“**选择所需的下载**”上，选中“**EN\x64\DacFramework.msi**”复选框，然后单击“**下一步**”。这将触发自动下载 **DacFramework.msi** 文件。
 1.  下载 **DacFramework.msi** 文件后，使用该文件安装 Microsoft SQL Server 数据层应用程序框架并采用默认设置。
 
 #### 任务 2：配置发布管道
