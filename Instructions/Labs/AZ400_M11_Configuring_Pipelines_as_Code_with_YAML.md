@@ -74,43 +74,81 @@ lab:
 在此任务中，你将使用 Azure 门户创建 Azure Web 应用和 Azure SQL 数据库。
 
 1.  从实验室计算机启动 Web 浏览器，导航到 [**Azure 门户**](https://portal.azure.com)，并使用用户帐户登录，该帐户在本实验室中将使用的 Azure 订阅中具有所有者角色，并在与此订阅关联的 Azure AD 租户中具有全局管理员角色。
-1.  在 Azure 门户中，单击页面左上角包含三条水平线的图标，然后在中心菜单中单击 **“+ 创建资源”**。
-1.  在“新建”边栏选项卡上的搜索文本框中，键入 **“Web 应用 + SQL”**，然后按 **Enter** 键。
-1.  在 **“Web 应用 + SQL”** 上，单击 **“创建”**。
-1.  在 **“Web 应用 + SQL”** 边栏选项卡上，指定以下设置：
+1.  在 Azure 门户的工具栏中，单击搜索文本框右侧的“**Cloud Shell**”图标。
+1.  如果提示选择“**Bash**”或“**PowerShell**”，请选择“**Bash**”。
 
-    | 设置 | 值 |
-    | --- | --- |
-    | 应用名称 | 任何全局唯一的有效 DNS 主机名 |
-    | 订阅 | 在本实验室中使用的 Azure 订阅的名称 |
-    | 资源组 | 新资源组名称 **az400m11l01-RG** |
+    >**备注**：如果这是第一次启动 **Cloud Shell**，并看到“**未装载任何存储**”消息，请选择在本实验室中使用的订阅，然后选择“**创建存储**”。 
 
-1.  单击 **“应用服务计划/位置”**，在 **“应用服务计划”** 边栏选项卡上，单击 **“+ 新建”**。
-1.  在 **“新建应用服务计划”** 边栏选项卡上，指定以下设置，并单击 **“确定”**：
+1.  在 **Cloud Shell** 窗格中的 Bash 提示符下，运行以下命令以创建资源组（将 `<region>` 占位符替换为离你最近的 Azure 区域的名称，例如“**eastus**”）。
 
-    | 设置 | 值 |
-    | --- | --- |
-    | 应用服务计划 | 任何有效名称 |
-    | 位置| 要在其中部署将在本实验室中使用的资源的 Azure 区域的名称 |
-    | 定价层 | **D1 共享** |
+    ```bash
+    RESOURCEGROUPNAME='az400m11l01-RG'
+    LOCATION='<region>'
+    az group create --name $RESOURCEGROUPNAME --location $LOCATION
+    ```
 
-1.  返回 **“Web 应用 + SQL”** 边栏选项卡，单击 **“SQL 数据库”**。
-1.  在 **“SQL 数据库”** 边栏选项卡上的 **“名称”** 文本框中，键入 **partsunlimited**。
-1.  在 **“SQL 数据库”** 边栏选项卡上，单击 **“目标服务器”**。
-1.  在 **“新建服务器”** 边栏选项卡上，指定以下设置，并单击 **“选择”**：
+1.  通过运行以下命令创建 Windows 应用服务计划：
 
-    | 设置 | 值 |
-    | --- | --- |
-    | 服务器名称 | 任何全局唯一的有效 DNS 主机名 |
-    | 服务器管理员登录 | Student |
-    | 密码 | Pa55w.rd1234 |
-    | 位置 | 为应用服务计划选择的 Azure 区域的名称 |
-    | 允许 Azure 服务访问服务器 | 已启用 |
+    ```bash
+    SERVICEPLANNAME='az400l11a-sp1'
+    az appservice plan create --resource-group $RESOURCEGROUPNAME --name $SERVICEPLANNAME --sku B3
+    ```
+    
+    > **备注**：如果 `az appservice plan create` 命令失败并显示以 `ModuleNotFoundError: No module named 'vsts_cd_manager'`开头的错误消息：那么请运行以下命令，然后重新运行失败的命令。
 
-1.  返回 **“SQL 数据库”** 边栏选项卡，单击 **“选择”**。
-1.  返回 **“Web 应用 + SQL”** 边栏选项卡，单击 **“创建”**。 
+    ```bash
+    az extension remove -n appservice-kube
+    az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
+    ```
 
-    > **备注**： 等待此过程完成。该过程大约需要 2 分钟。 
+1.  创建具有唯一名称的 Web 应用。
+
+    ```bash
+    WEBAPPNAME=partsunlimited$RANDOM$RANDOM
+    az webapp create --resource-group $RESOURCEGROUPNAME --plan $SERVICEPLANNAME --name $WEBAPPNAME
+    ```
+
+    > **备注**：记录该 Web 应用的名称。稍后将在本实验室用到它。
+
+1.  接下来，创建 Azure SQL Server。
+
+    ```bash
+    USERNAME="Student"
+    SQLSERVERPASSWORD="Pa55w.rd1234"
+    SERVERNAME="partsunlimitedserver$RANDOM"
+
+    az sql server create --name $SERVERNAME --resource-group $RESOURCEGROUPNAME \
+    --location $LOCATION --admin-user $USERNAME --admin-password $SQLSERVERPASSWORD
+    ```
+
+1.  Web 应用需要能够访问 SQL Server，因此我们需要允许访问 SQL Server 防火墙规则中的 Azure 资源。
+
+    ```bash
+    STARTIP="0.0.0.0"
+    ENDIP="0.0.0.0"
+    az sql server firewall-rule create --server $SERVERNAME --resource-group $RESOURCEGROUPNAME \
+    --name AllowAzureResources --start-ip-address $STARTIP --end-ip-address $ENDIP
+    ```
+
+1.  现在，在该服务器中创建数据库。
+
+    ```bash
+    az sql db create --server $SERVERNAME --resource-group $RESOURCEGROUPNAME --name PartsUnlimited \
+    --service-objective S0
+    ```
+
+1.  创建的 Web 应用在其配置中需要数据库连接字符串，因此请运行以下命令来准备该字符串，并将其添加到 Web 应用的应用设置中。
+
+    ```bash
+    CONNSTRING=$(az sql db show-connection-string --name PartsUnlimited --server $SERVERNAME \
+    --client ado.net --output tsv)
+
+    CONNSTRING=${CONNSTRING//<username>/$USERNAME}
+    CONNSTRING=${CONNSTRING//<password>/$SQLSERVERPASSWORD}
+
+    az webapp config connection-string set --name $WEBAPPNAME --resource-group $RESOURCEGROUPNAME \
+    -t SQLAzure --settings "DefaultConnectionString=$CONNSTRING" 
+    ```
 
 ### 练习 1：在 Azure DevOps 中使用 YAML 将 CI/CD 管道配置为代码
 
@@ -312,14 +350,7 @@ lab:
 #### 任务 4：查看已部署的站点
 
 1.  切换回显示 Azure 门户的 Web 浏览器窗口，导航到显示 Azure Web 应用的属性的边栏选项卡。
-1.  在 Azure Web 应用边栏选项卡的 **“设置”** 部分，选择 **“配置”**。
-1.  在 Azure Web 应用配置窗格的 **“连接字符串”** 部分单击 **“defaultConnection”** 条目。
-1.  在 **“添加/编辑连接字符串”** 边栏选项卡的 **“名称”** 文本框中，将当前值更改为应用程序所需的密钥 **DefaultConnectionString**，然后单击 **“确定”**。
-
-    > **备注**： 这将使应用程序能够连接到为应用服务创建的数据库。 
-
-1.  返回 Azure Web 应用配置选项卡，单击 **“保存”** 以应用更改，然后在出现提示时，单击 **“继续”**
-1.  在 Azure Web 应用边栏选项卡上，单击 **“概述”**，然后在“概述”边栏选项卡上，单击 **“浏览”** 以在新的 Web 浏览器标签页中打开站点。
+1.  在 Azure Web 应用边栏选项卡上，单击“**概述**”，然后在“**概述**”边栏选项卡上单击“**浏览**”，在新的 Web 浏览器标签页中打开站点。
 1.  验证已部署的站点是否按预期在新浏览器标签页中加载。
 
 ### 练习 2：删除 Azure 实验室资源
