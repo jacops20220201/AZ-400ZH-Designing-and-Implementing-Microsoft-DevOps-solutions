@@ -129,6 +129,17 @@ lab:
 1.  在 GitHub 存储库页面的工具栏中单击 **“操作”**。
 1.  在 **“所有工作流”** 部分，单击 **“Update Index.cshtml”** 条目。
 1.  在 **“devops-starter-workflow.yml”** 部分，监视部署进度并验证部署是否成功完成。
+     > **备注**：如果使用“**azure/CLI@1**”的操作失败，请将以下更改提交到 **devops-starter-workflow.yml** 文件（更改默认 Azure CLI 版本），并验证该操作是否成功完成：
+       ```
+       - name: Deploy ARM Template
+          uses: azure/CLI@v1
+          continue-on-error: false
+          with:
+            azcliversion: 2.29.2
+            inlineScript: |
+              az group create --name "${{ env.RESOURCEGROUPNAME }}" --location "${{ env.LOCATION }}"
+              az deployment group create --resource-group "${{ env.RESOURCEGROUPNAME }}" --template-file ./ArmTemplates/windows-webapp-     template.json --parameters webAppName="${{ env.AZURE_WEBAPP_NAME }}" hostingPlanName="${{ env.HOSTINGPLANNAME }}"   appInsightsLocation="${{ env.APPINSIGHTLOCATION }}" sku="${{ env.SKU }}"
+       ```
 1.  切换到在 Azure 门户中显示 DevOps Starter 边栏选项卡的浏览器窗口，并单击 **“Application 终结点”** 条目旁边的 **“浏览”** 链接。
 1.  在新打开的 Web 浏览器窗口中，验证更新后的文本（表示在 GitHub 存储库中提交的更改）是否显示在 Web 应用主页上。
 
