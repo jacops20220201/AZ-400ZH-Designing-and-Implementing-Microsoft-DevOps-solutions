@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 14a： Ansible 与 Azure'
     module: '模块 14：通过 Azure 提供的第三方基础结构即代码工具'
@@ -292,22 +292,22 @@ Ansible 要求在指定的主机清单中指定托管资源。对于某些系统
     ```
 
 1.  记录输出，包括输出字符串结尾的用户名。 
-1.  运行以下命令，在 Nano 文本编辑器中打开 **new_vm_web.yml** 文件：
+1.  运行以下命令，在代码文本编辑器中打开“**new_vm_web.yml**”文件：
 
     ```bash
-    nano ~/PartsUnlimitedMRP/Labfiles/AZ-400T05-ImplemntgAppInfra/Labfiles/ansible/new_vm_web.yml
+    code ~/PartsUnlimitedMRP/Labfiles/AZ-400T05-ImplemntgAppInfra/Labfiles/ansible/new_vm_web.yml
     ```
 
-1.  在 Nano 编辑器中，如果需要，请将 `dnsname: '{{ vmname }}.westeurope.cloudapp.azure.com'` 条目中的区域名称更改为要在其中进行部署的 Azure 区域的名称。 
+1.  在代码编辑器中，如果需要，将 `dnsname: '{{ vmname }}.westeurope.cloudapp.azure.com'` 条目中的区域名称更改为要在其中进行部署的 Azure 区域的名称。 
 
     >**备注**： 请确保此区域与你在 **az400m14l03rg** 资源组中创建的 Azure 区域相匹配。
 
-1.  在 Nano 编辑器中，将 `vm_size`条目的值从 `Standard_A0`更改为 `Standard_DS1_v2`。
-1.  在 Nano 编辑器中找到文件末尾的 SSH 字符串，在 `key_data` 条目中，删除现有的密钥值并将其替换为之前在此任务中记录的密钥值。 
+1.  在代码编辑器中，将 `vm_size` 条目的值从 `Standard_A0` 更改为 `Standard_DS1_v2`。
+1.  在代码编辑器中，找到文件末尾的 SSH 字符串，在 `key_data` 条目中，删除现有键值，并将其替换为在本任务前面部分记录的键值。 
 
     >**备注**： 确保文件中包含的 `admin_username` 条目的值与用于登录托管 Ansible 控制系统的 Azure VM 的用户名 (**azureuser**)一致。`Ssh_public_keys` 部分的 `path` 条目必须使用相同的用户名。
 
-1.  在 Nano 编辑器界面中，按 **ctrl + o** 组合键，再按 **Enter** 键，然后按 **ctrl + x** 组合键保存更改并关闭文件。
+1.  在代码编辑器界面中，单击右上方的“**...**”，然后选择“**保存**”。
 
     >**备注**： 接下来，你将在本实验室开头时创建的资源组中部署一个 Azure VM：使用以下值进行部署： 
 
@@ -351,13 +351,13 @@ Ansible 要求在指定的主机清单中指定托管资源。对于某些系统
 
     >**备注**： 等待部署完成。该操作需要约 3 分钟。 
 
-1.  运行以下命令来创建一个名为 **myazure_rm.yml** 的新文件，并在 Nano 文本编辑器中打开它：
+1.  运行以下命令，创建一个名为“**myazure_rm.yml**”的新文件，并在代码文本编辑器中打开它：
 
     ```bash
-    nano ./myazure_rm.yml
+    code ./myazure_rm.yml
     ```
 
-1.  在 Nano 编辑器界面中，粘贴以下内容：
+1.  在代码编辑器界面中，粘贴以下内容：
 
     ```bash
     plugin: azure_rm
@@ -370,8 +370,8 @@ Ansible 要求在指定的主机清单中指定托管资源。对于某些系统
       key: tags
     ```
 
-1.  在 Nano 编辑器界面中，按 **ctrl + o** 组合键，再按 **Enter** 键，然后按 **ctrl + x** 组合键保存更改并关闭文件。
-1.  回到 Cloud Shell 窗格的 Bash 会话，在配置为 Ansible 控制节点的 Azure VM 的 SSH 会话中，运行以下命令来执行 ping 测试，验证动态清单文件是否包含新部署的 Azure VM：
+1.  在代码编辑器界面中，单击右上方的“**...**”，然后选择“**保存**”。
+1.  回到 Cloud Shell 窗格的 Bash 会话，在与配置为 Ansible 控制节点的 Azure VM 的 SSH 会话中，运行以下命令来执行 ping 测试，验证动态清单文件是否包含新部署的 Azure VM：
 
     ```bash
     sudo ansible --user azureuser --private-key=/home/azureuser/.ssh/id_rsa all -m ping -i ./myazure_rm.yml

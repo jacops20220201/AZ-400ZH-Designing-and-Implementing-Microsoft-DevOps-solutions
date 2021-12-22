@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 09： 使用 Azure Artifacts 进行包管理'
     module: '模块 9：设计和实现依赖项管理策略'
@@ -77,7 +77,7 @@ Azure Artifacts 有助于在 Azure DevOps 中发现、安装和发布 NuGet、np
     > **备注**：你可以通过导航到 [https://dev.azure.com/`<your-Azure-DevOps-account-name>`/Package%20Management%20with%20Azure%20Artifacts](https://dev.azure.com/`<your-Azure-DevOps-account-name>`/Package%20Management%20with%20Azure%20Artifacts) URL 直接访问项目页面，其中 `<your-Azure-DevOps-account-name>` 占位符表示帐户名称。 
 
 1.  在 **“使用 Azure Artifacts 进行包管理”** 窗格左侧的垂直菜单中，单击 **Repos**。
-1.  在 **“文件”** 窗格上，单击 **“克隆”**，再单击 **“在 VS Code 中克隆”**，然后在下拉菜单中选择 **Visual Studio**。
+1. 在“**文件**”窗格中，单击“**克隆**”，选择“**在 VS Code 中克隆**”旁边的下拉箭头，然后在下拉菜单中选择“**Visual Studio**”。
 1.  如果系统提示你是否继续，请单击 **“打开”**。 
 1.  如果系统出现提示，请使用用于设置 Azure DevOps 组织的用户帐户登录。
 1.  在 Visual Studio 界面的 **Azure DevOps** 弹出窗口中，接受默认的本地路径，然后单击 **“克隆”**。这会自动将项目导入 Visual Studio，并打开一个新的 Web 浏览器标签页，其中显示“迁移报表”页面。
@@ -129,7 +129,7 @@ Azure Artifacts 有助于在 Azure DevOps 中发现、安装和发布 NuGet、np
 
     > **备注**：现在，我们将创建一个共享程序集，该程序集将以 NuGet 包的形式发布，以便其他团队可以集成该程序集并保持同步，而不必直接使用项目源。
 
-1.  在 **“新建项目”** 窗格的 **“最新项目模板”** 页面上，使用搜索文本框找到 **“类库(.NET Framework)”** 模板，选择它，然后单击 **“下一步”**。 
+1. 在“**创建新项目**”窗格的“**最近使用的项目模板**”页面上，使用搜索文本框查找“**类库(.NET 框架)**”模板，选择 C# 模板，然后单击“**下一步**”。
 1.  在 **“新建项目”** 窗格的 **“类库(.NET Framework)”** 页面上，指定以下设置，然后单击 **“创建”**：
 
     | 设置 | 值 |

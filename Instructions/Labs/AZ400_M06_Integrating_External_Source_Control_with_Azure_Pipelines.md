@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 06b：将外部源代码管理与 Azure Pipelines 集成'
     module: '模块 6： 使用 Azure Pipelines 实现持续集成'
@@ -91,7 +91,7 @@ Azure Pipelines 为每个 GitHub 开源项目免费提供无限的 CI/CD 分钟�
 
 1. 在 Azure DevOps 门户中，单击左侧导航面板中的 **“管道”**。
 
-1. 单击右上方的 **“新建管道”** 按钮。
+1. 单击右上角的“**创建管道**”按钮。
 
 1.  在 Azure DevOps 门户中 **“管道”** 视图的 **“选择存储库”** 窗格上，选择在上一个任务中创建的 GitHub 计算器存储库的分支。
 

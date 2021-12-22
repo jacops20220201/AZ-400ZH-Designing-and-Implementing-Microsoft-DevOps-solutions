@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '实验室 15： 将 Docker 容器部署到 Azure 应用服务 Web 应用'
     module: '模块 15： 使用 Docker 管理容器'
@@ -157,8 +157,8 @@ lab:
 
     >**备注**：需要首先修改对 Docker 映像的引用。
 
-1.  在 **Docker** 存储库窗格的文件列表中，选择 **docker-compos.ci.build.yml**。
-1.  在 **docker-compos.ci.build.yml** 窗格中，单击“**编辑**，将引用目标 Docker 映像的第 **5** 行替换为 `image: az400mp/aspnetcore-build:1.0-2.0`，选择“**提交**”，系统提示确认时再次单击“**提交**”。 
+1.  在 **Docker** 存储库窗格的文件列表中，选择 **docker-compose.ci.build.yml**。
+1.  在 **docker-compose.ci.build.yml** 窗格中，单击“**编辑**，将引用目标 Docker 映像的第 **5** 行替换为 `image: az400mp/aspnetcore-build:1.0-2.0`，选择“**提交**”，系统提示确认时再次单击“**提交**”。 
 1.  在 **Docker** 存储库窗格的文件列表中，导航到 **MyHealth.Web** 文件夹，然后选择“**Dockerfile**”。
 1.  在 **Dockerfile** 窗格中，单击“**编辑**”，将引用基础 Docker 映像的第 **1** 行替换为 `FROM az400mp/aspnetcore1.0:1.0.4`，选择“**提交**”，系统提示确认时再次单击“**提交**”。 
 1.  在显示 Azure DevOps 门户的 Web 浏览器窗口中，“**将 Docker 容器部署到 Azure 应用服务 Web 应用**”项目处于打开状态，在 Azure DevOps 门户最左侧的垂直菜单栏中，单击“**管道**”。
