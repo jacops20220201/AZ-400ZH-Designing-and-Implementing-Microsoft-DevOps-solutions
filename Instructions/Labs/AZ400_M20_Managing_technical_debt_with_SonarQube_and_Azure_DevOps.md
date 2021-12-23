@@ -109,7 +109,7 @@ lab:
 1.  在 Web 浏览器窗口中，导航到 **SonarCloud 主页** [https://sonarcloud.io/](https://sonarcloud.io/)。
 1.  在 SonarCloud 主页面上，单击 **“登录”**。
 1.  在 **“登录或注册 SonarCloud”** 上，单击 **“使用 Azure DevOps”**。 
-1.  系统提示 **“是否允许此应用访问你的信息”** 时，请单击 **“是”**。
+1. 系统提示“**是否允许此应用访问你的信息**”时，请单击“**是**”。如果出现提示，请选择“**代表组织同意**”和“**接受**”。
 
     > **备注**： 在 SonarCloud 中，你将创建组织，并在其中新建项目。在 SonarCloud 中设置的组织和项目将与在 Azure DevOps 中设置的组织和项目一样。
 
@@ -234,7 +234,7 @@ lab:
 
     > **备注**： 需遵循本任务中的其余步骤来修改 YAML 管道。 
 
-1.  在 **NuggetCommand@2** 任务中，将 `restoreSolution: 'SomeConsoleApplication.sln'` 替换为 `restoreSolution: 'SomeConsoleApplication.sln'` 以说明解决方案不在存储库的根目录中。
+1. 在 **NuGetCommand@2** 任务中，将 `restoreSolution: 'SomeConsoleApplication.sln'` 替换为 `restoreSolution: '**\SomeConsoleApplication.sln'` 以说明解决方案不在存储库的根目录中。
 1.  在 **VSBuild@1** 任务中，将 `solution: 'SomeConsoleApplication.sln'` 替换为 `solution: 'SomeConsoleApplication.sln'`，以说明解决方案不在存储库的根目录中。
 1.  在 **SonarCloudPrepare@1** 任务中，将 `organization: 'myorga'` 条目中的 `myorga` 占位符的值替换为 SonarCloud 组织的名称。
 1.  在 **SonarCloudPrepare@1** 任务中，将 `projectKey: 'dotnet-framework-on-azdo'` 条目中的 `dotnet-framework-on-azdo` 占位符的值替换为 SonarCloud 项目密钥的名称。

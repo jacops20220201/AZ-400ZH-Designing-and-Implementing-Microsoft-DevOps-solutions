@@ -95,7 +95,7 @@ Git 是新项目的默认版本控制提供程序。除非明确需要 TFVC 中�
     ```git
     git config --global credential.helper wincred
     ```
-1.  在 **“终端”** 窗格中运行以下命令，为 Git 提交配置用户名和电子邮件（将括号中的占位符替换为首选用户名和电子邮件）：
+1.  在“**终端**”窗格中运行以下命令，为 Git 提交配置用户名和电子邮件（将括号中的占位符替换为首选用户名和电子邮件，并去掉 < 和 > 符号）：
 
     ```git
     git config --global user.name "<John Doe>"

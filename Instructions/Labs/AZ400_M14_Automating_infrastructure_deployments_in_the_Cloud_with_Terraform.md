@@ -89,13 +89,47 @@ Terraform 配置文件描述了运行单个应用程序或整个数据中心所�
 
 1.  在 **Terraform** 存储库的文件夹层次结构中，展开 **“Terraform”** 文件夹，然后单击 **“webapp.tf”**。
 1.  在 **webapp.tf** 上查看 **webapp.tf** 文件的内容，然后单击“**编辑**”。
-1.  在 11 行之后添加一个新行，从新行开始输入以下文本，单击“**提交**”，然后在“**提交**”窗格中再次单击“**提交**”。
+1.  为“**提供程序**”部分添加新行，该文件应如以下示例所示：
 
     ```
+     terraform {
+      required_version = ">= 0.11" 
+      backend "azurerm" {
+      storage_account_name = "__terraformstorageaccount__"
+        container_name       = "terraform"
+        key                  = "terraform.tfstate"
+        access_key  ="__storagekey__"
+        }
+    }
     provider "azurerm" {
         features {} 
+      }
+
+    resource "azurerm_resource_group" "dev" {
+      name     = "PULTerraform"
+      location = "West Europe"
+    }
+
+    resource "azurerm_app_service_plan" "dev" {
+      name                = "__appserviceplan__"
+      location            = "${azurerm_resource_group.dev.location}"
+      resource_group_name = "${azurerm_resource_group.dev.name}"
+
+      sku {
+        tier = "Free"
+        size = "F1"
+      }
+    }
+
+    resource "azurerm_app_service" "dev" {
+      name                = "__appservicename__"
+      location            = "${azurerm_resource_group.dev.location}"
+      resource_group_name = "${azurerm_resource_group.dev.name}"
+      app_service_plan_id = "${azurerm_app_service_plan.dev.id}"
+
     }
     ```
+1.  单击“**提交**”，然后在“**提交**”窗格上再次单击“**提交**”。
 
     > **备注**： **webapp.tf** 是 terraform 配置文件。Terraform 使用的是其专属文件格式，该格式称为 HCL（Hashicorp 配置语言），类似于 YAML。
 

@@ -164,8 +164,8 @@ lab:
 1.  在 **“相关工作”** 部分中，选择 **“添加链接”** 条目，然后在下拉列表中选择 **“新建项目”**。
 1.  在 **“添加链接”** 面板上，选择 **“工作项类型”** 下拉列表中的 **“功能”**，在 **“标题”** 文本框中，键入 **“训练仪表板”** 并单击 **“确定”**。
 
-    <!-- ![训练仪表板](images/m1/child_feature_v1.png) -->
-    [<img src="images/m1/child_feature_v1.png" alt="Include Title 'Training Dashboard' and click 'OK' " width="500"/>](images/m1/child_feature_v1.png)
+ 
+    ![包含标题“训练仪表板”并单击“确定”](images/m1/child_feature_v1.png)
 
     > **备注**： 在 **“训练仪表板”** 面板上，请注意，分配、**领域**和**迭代**已设置为与该功能所基于的长篇故事相同的值。此外，该功能会自动链接到创建时所基于的父项。 
 
