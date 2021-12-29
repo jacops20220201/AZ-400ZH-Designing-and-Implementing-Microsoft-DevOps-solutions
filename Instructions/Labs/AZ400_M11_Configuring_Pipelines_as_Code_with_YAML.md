@@ -80,10 +80,12 @@ lab:
     >**备注**：如果这是第一次启动 **Cloud Shell**，并看到“**未装载任何存储**”消息，请选择在本实验室中使用的订阅，然后选择“**创建存储**”。 
 
 1.  在 **Cloud Shell** 窗格中的 Bash 提示符下，运行以下命令以创建资源组（将 `<region>` 占位符替换为离你最近的 Azure 区域的名称，例如“**eastus**”）。
-
+    
+    ```bash
+    LOCATION='<region>'
+    ```
     ```bash
     RESOURCEGROUPNAME='az400m11l01-RG'
-    LOCATION='<region>'
     az group create --name $RESOURCEGROUPNAME --location $LOCATION
     ```
 
@@ -178,22 +180,29 @@ lab:
 
 1.  在 **“你的代码在哪里?”** 窗格上，单击 **“Azure Repos Git (YAML)”** 选项。
 1.  在 **“选择存储库”** 窗格上，单击 **“PartsUnlimited”**。
-2.  在 **“配置管道”** 窗格上，单击 **“ASP<nolink>.NET”** 以使用此模板作为管道的起点。这将打开 **“查看你的管道 YAML”** 窗格。
+1.  在“**配置管道**”窗格上，单击“**ASP<nolink>.NET**”以使用此模板作为管道的起点。这将打开“**查看你的管道 YAML**”窗格。
 
     > **备注**： 管道定义将在存储库根目录中保存为名为 **“azure-pipelines.yml”** 的文件。该文件将包含生成和测试典型 ASP<nolink>.NET 解决方案所需的步骤。还可以根据需要自定义该生成。在此方案中，你将更新**池**，以强制使用运行 Visual Studio 2017 的 VM。
 
-3.  确保 `trigger` 为 **“主分支”**。
+1.  确保 `trigger` 为“**主分支**”。
 
     > **备注**： 在 Repos 中查看存储库是否具有**主分支**，组织可以为新存储库选择默认分支名称： [更改默认分支](https://docs.microsoft.com/zh-cn/azure/devops/repos/git/change-default-branch?view=azure-devops#choosing-a-name)。 
 
-4.  在 **“查看你的管道 YAML”** 窗格上，在行 **10** 中，将 `vmImage: 'Windows-latest'` 替换为 `vmImage: 'vs2017-win2016'`。
-5.  在 **“查看你的管道 YAML”** 窗格上，单击 **“保存并运行”**。
-6.  在 **“保存并运行”** 窗格上，接受默认设置，然后单击 **“保存并运行”**。
-7.  在 **“管道运行”** 窗格的 **“作业”** 部分，单击 **“作业”**，监视其进度并验证它是否成功完成。 
+1.  在“**查看你的管道 YAML**”窗格上，在行 **10** 中，将 `vmImage: 'Windows-latest'` 替换为 `vmImage: 'windows-2019'`。
+1.  删除 **VSTest@2** 任务：
+    ```yaml
+    - task: VSTest@2
+      inputs:
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+    ```
+1.  在“**查看你的管道 YAML**”窗格上，单击“**保存并运行**”。
+1.  在“**保存并运行**”窗格上，接受默认设置，然后单击“**保存并运行**”。
+1.  在“**管道运行**”窗格的“**作业**”部分，单击“**作业**”，监视其进度并验证它是否成功完成。 
 
     > **备注**： YAML 文件中的每项任务都可供查看，包括任何警告和错误。
 
-8.  返回到 **“管道运行”** 窗格，从 **“摘要”** 选项卡切换到 **“测试”** 选项卡，并查看测试统计信息。
+1.  返回到“**管道运行**”窗格，从“**摘要**”选项卡切换到“**测试**”选项卡，并查看测试统计信息。
 
 #### 任务 3：将持续交付添加到 YAML 定义
 
@@ -285,7 +294,7 @@ lab:
       jobs:
       - job: Build
         pool:
-            vmImage: 'vs2017-win2016'
+            vmImage: 'windows-2019'
 
         variables:
             solution: '**/*.sln'
@@ -306,11 +315,6 @@ lab:
             platform: '$(buildPlatform)'
             configuration: '$(buildConfiguration)'
 
-        - task: VSTest@2
-          inputs:
-            platform: '$(buildPlatform)'
-            configuration: '$(buildConfiguration)'
-
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
@@ -321,7 +325,7 @@ lab:
       jobs:
       - job: Deploy
         pool:
-            vmImage: 'vs2017-win2016'
+            vmImage: 'windows-2019'
         steps:
         - task: DownloadBuildArtifacts@0
           inputs:
