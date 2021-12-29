@@ -189,7 +189,7 @@ lab:
     > **备注**： 在 Repos 中查看存储库是否具有**主分支**，组织可以为新存储库选择默认分支名称： [更改默认分支](https://docs.microsoft.com/zh-cn/azure/devops/repos/git/change-default-branch?view=azure-devops#choosing-a-name)。 
 
 1.  在“**查看你的管道 YAML**”窗格上，在行 **10** 中，将 `vmImage: 'Windows-latest'` 替换为 `vmImage: 'windows-2019'`。
-1.  删除 VSTest@2 任务****：
+1.  删除 **VSTest@2** 任务：
     ```yaml
     - task: VSTest@2
       inputs:
